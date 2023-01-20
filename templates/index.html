@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Git Facts</title>
+    </head>
+    <script>
+        function clearItems() {
+            items = [];
+            let items_div = document.getElementById("items_div");
+            items_div.innerHTML = "";
+        }
+    </script>
+    
+    <body>
+        <form method="POST" action="/" align="center">
+            <label for="git_repo">Git repository:</label>
+            <input type="text" id="git_repo" name="git_repo" placeholder="Enter Git Repository">
+            <input type="submit" value="Submit">
+            <input type="button" value="Clear" onclick="clearItems()">
+        </form>
+        <div id="items_div" align="center">
+            {% if items is defined %}
+                {% for item in items %}
+                    <p>{{ item }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>        
+    </body>
+</html>
